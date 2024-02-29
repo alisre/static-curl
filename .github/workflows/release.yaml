@@ -189,18 +189,6 @@ jobs:
           name: curl-binary-linux-musl-${{ env.VERSION }}
           path: release
 
-      - name: Download artifact (macos)
-        uses: actions/download-artifact@v4
-        with:
-          name: curl-binary-macos-${{ env.VERSION }}
-          path: release
-
-      - name: Download artifact (windows)
-        uses: actions/download-artifact@v4
-        with:
-          name: curl-binary-windows-${{ env.VERSION }}
-          path: release
-
       - name: List compiled files
         run: |
           ls -l release/*
