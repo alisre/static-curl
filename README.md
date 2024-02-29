@@ -1,6 +1,6 @@
 # Static cURL with HTTP3
 
-Static cURL binary built with HTTP3, brotli, and zstd support.
+Static cURL binary built with HTTP3, brotli, and zstd  support.
 
 The script will automatically retrieve the latest version of each component.  
 Simply execute it to compile the most recent version.
