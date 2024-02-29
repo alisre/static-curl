@@ -2,7 +2,7 @@ name: build-and-release
 
 on:
   # run it manually
-  workflow_dispatch:
+  - push
 
 jobs:
   build-Linux:
