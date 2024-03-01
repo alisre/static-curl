@@ -22,7 +22,7 @@ create_release_note() {
     features=$(grep Features release/version-info.txt | cut -d":" -f2 | sed -e 's/^[[:space:]]*//')
 
     echo "Creating checksum..."
-    output_sha256=$(sha256sum release/bin/curl-linux* release/bin/curl-macos* release/bin/curl-windows* \
+    output_sha256=$(sha256sum release/bin/curl-linux* \
         | sed 's#release/bin/##g' | sed 's#-# #g' | sed 's#.exe##g')
     markdown_table=$(printf "%s" "${output_sha256}" |
         awk 'BEGIN {print "| File | Platform | Arch | LibC | SHA256 |\n|------|------|------|--------|--------|"}
@@ -63,7 +63,7 @@ tar_curl() {
         XZ_OPT=-9 tar -Jcf "${filename}-${CURL_VERSION}.tar.xz" curl.exe curl-ca-bundle.crt && rm -f curl.exe;
     done
 
-    for file in curl-linux-* curl-macos-*; do
+    for file in curl-linux-*; do
         mv "${file}" curl;
         XZ_OPT=-9 tar -Jcf "${file}-${CURL_VERSION}.tar.xz" curl && rm -f curl;
     done
